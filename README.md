@@ -4,3 +4,7 @@ Topological and Geometric Data Reduction and Visualization Repo
 ## Project 1
 
 ![alt src](project1.png)
+
+## License
+
+[![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
