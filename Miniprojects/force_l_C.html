@@ -29,14 +29,32 @@ var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
+// Per-type markers, as they don't inherit styles.
+svg.append("defs")
+// .selectAll("marker")
+    // .data(["suit", "licensing", "resolved"])
+  // .enter()
+  .append("marker")
+    .attr("id", "arrow")
+    // .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 50)
+    .attr("refY", 0)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+    .style('fill','rgb(190,190,190)')
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5");
+
 var color = d=>d;
 
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
+    .force("charge", d3.forceManyBody().strength(-100))
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json("cluster_karate_B.json", function(error, graph) {
+d3.json("cluster_karate_C.json", function(error, graph) {
   if (error) throw error;
 
   var link = svg.append("g")
@@ -44,14 +62,16 @@ d3.json("cluster_karate_B.json", function(error, graph) {
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", d=>0.5+Math.sqrt(100*d.value))
+          .attr("marker-end", function(d) { return "url(#" + 'arrow' + ")"; })
+          .style('stroke',d=>d.cut?'green':'')
 
   var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", d=>d.id==1||d.id==34?10:5)
+      .attr("r", d=>5+500*d.radius)
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
           .on("start", dragstarted)
