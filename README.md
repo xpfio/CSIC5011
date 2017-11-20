@@ -9,6 +9,14 @@ Topological and Geometric Data Reduction and Visualization Repo
 
 ![alt src](project2.png)
 
+## Run Code
+
+`jupyter notebook`
+
+`python -m SimpleHTTPServer`
+
+`python -m http.server`
+
 ## License
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
