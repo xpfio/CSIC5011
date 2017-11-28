@@ -13,6 +13,14 @@ This repo contains the code source and the posters for Professor YAO course.
 
 ![alt src](project2.png)
 
+## Run Code
+
+`jupyter notebook`
+
+`python -m SimpleHTTPServer`
+
+`python -m http.server`
+
 ## License
 
 [![CC0](http://i.creativecommons.org/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
