@@ -1,6 +1,10 @@
 # CSIC5011
 Topological and Geometric Data Reduction and Visualization Repo
 
+# Overview
+
+This repo contains the code source and the posters for Professor YAO course.
+
 ## Project 1
 
 ![alt src](project1.png)
